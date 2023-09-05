@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Traffic Light Simulator</title>
+  <style>
+    .traffic-light {
+      width: 150px;
+      height: 380px;
+      border: 2px solid #333;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      margin: 50px auto;
+      padding: 10px;
+    }
+
+    .light {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #777;
+    }
+
+    .red {
+      background-color: red;
+    }
+
+    .yellow {
+      background-color: yellow;
+    }
+
+    .green {
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="traffic-light">
+    <div class="light red"></div>
+    <div class="light yellow"></div>
+    <div class="light green"></div>
+  </div>
+
+  <script>
+    function changeLight() {
+      const lights = document.querySelectorAll('.light');
+
+      if (lights[0].classList.contains('red')) {
+        lights[0].classList.remove('red');
+        lights[1].classList.add('yellow');
+        
+      } else if (lights[1].classList.contains('yellow')) {
+        lights[1].classList.remove('yellow');
+        lights[2].classList.add('green');
+      } else {
+        lights[2].classList.remove('green');
+        lights[0].classList.add('red');
+      }
+    }
+
+    setInterval(changeLight, 3000); // Change light every 3 seconds
+  </script>
+</body>
+</html>
